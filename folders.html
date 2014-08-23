@@ -19,7 +19,8 @@
         var values_2 = {
             foo: 'Foo',
             bar: 'Bar',
-            baz: 'Baz'
+            baz: 'Baz',
+            extra: 'Extra'
         };
 
         var gui=new dat.GUI();
@@ -43,6 +44,9 @@
             folder_2.add(values_2, 'foo').onChange(function() { foo_out_2.innerHTML = values_2.foo; });
             folder_2.add(values_2, 'bar').onChange(function() { bar_out_2.innerHTML = values_2.bar; });
             folder_2.add(values_2, 'baz').onChange(function() { baz_out_2.innerHTML = values_2.baz; });
+
+            var folder_2_1 = folder_2.addFolder('Folder 2.1');
+                folder_2_1.add(values_2, 'extra');
 
         folder_1.close();
         folder_2.open ();
