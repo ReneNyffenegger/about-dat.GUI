@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: color</title>
+
+  <style type="text/css">
+    .color_out {
+       position: fixed;
+       width   :   150px;
+       height  :   150px;
+    }
+
+    #color_out_1, #color_out_2 { top:  30px }
+    #color_out_3, #color_out_4 { top: 200px }
+
+    #color_out_1, #color_out_3 {left:  30px }
+    #color_out_2, #color_out_4 {left: 200px }
+
+    #color_out_1 { background-color: #abcabc}
+    #color_out_2 { background-color: #7f7f7f}
+    #color_out_3 { background-color: #bebebe}
+    #color_out_4 { background-color: #14661d}
+
+  </style>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    function main() {
+
+        var chooseColor  = {
+            color_1: '#777777'               , // CSS
+            color_2: [127, 127, 127         ], // RGB
+            color_3: [127, 127, 127, 0.5    ], // RGB α
+            color_4: {h: 127, s: 0.8, v: 0.4}  // HSV
+        };
+
+        var gui=new dat.GUI();
+
+        var color_out_1 = document.getElementById('color_out_1');
+        var color_out_2 = document.getElementById('color_out_2');
+        var color_out_3 = document.getElementById('color_out_3');
+        var color_out_4 = document.getElementById('color_out_4');
+
+        gui.addColor(chooseColor, 'color_1').onChange(function() { color_out_1.style.backgroundColor = '#abcabc'; });
+        gui.addColor(chooseColor, 'color_2').onChange(function() { color_out_2.style.backgroundColor = chooseColor.color_2; });
+        gui.addColor(chooseColor, 'color_3').onChange(function() { color_out_3.style.backgroundColor = chooseColor.color_3; });
+        gui.addColor(chooseColor, 'color_4').onChange(function() { color_out_4.style.backgroundColor = chooseColor.color_4; });
+      
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+  <div class='color_out' id='color_out_1'></div>
+  <div class='color_out' id='color_out_2'></div>
+  <div class='color_out' id='color_out_3'></div>
+  <div class='color_out' id='color_out_4'></div>
+</body>
+
+
+</html>
