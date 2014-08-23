@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: Folders</title>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    function main() {
+
+        var values_1 = {
+            foo: 'Foo',
+            bar: 'Bar',
+            baz: 'Baz'
+        };
+
+        var values_2 = {
+            foo: 'Foo',
+            bar: 'Bar',
+            baz: 'Baz'
+        };
+
+        var gui=new dat.GUI();
+
+        var foo_out_1 = document.getElementById('foo_out_1');
+        var bar_out_1 = document.getElementById('bar_out_1');
+        var baz_out_1 = document.getElementById('baz_out_1');
+
+        var foo_out_2 = document.getElementById('foo_out_2');
+        var bar_out_2 = document.getElementById('bar_out_2');
+        var baz_out_2 = document.getElementById('baz_out_2');
+
+        var folder_1 = gui.addFolder('Folder 1');
+
+            folder_1.add(values_1, 'foo').onChange(function() { foo_out_1.innerHTML = values_1.foo; });
+            folder_1.add(values_1, 'bar').onChange(function() { bar_out_1.innerHTML = values_1.bar; });
+            folder_1.add(values_1, 'baz').onChange(function() { baz_out_1.innerHTML = values_1.baz; });
+
+        var folder_2 = gui.addFolder('Folder 2');
+
+            folder_2.add(values_2, 'foo').onChange(function() { foo_out_2.innerHTML = values_2.foo; });
+            folder_2.add(values_2, 'bar').onChange(function() { bar_out_2.innerHTML = values_2.bar; });
+            folder_2.add(values_2, 'baz').onChange(function() { baz_out_2.innerHTML = values_2.baz; });
+
+        folder_1.close();
+        folder_2.open ();
+      
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+   <table>
+     <tr><td colspan=2'><b>Folder 1</b>     </td></tr>
+       <tr><td>Foo: </td><td id='foo_out_1'>Foo</td></tr>
+       <tr><td>Bar: </td><td id='bar_out_1'>Bar</td></tr>
+       <tr><td>Baz: </td><td id='baz_out_1'>Baz</td></tr>
+     <tr><td colspan=2'><b>Folder 2</b>     </td></tr>
+       <tr><td>Foo: </td><td id='foo_out_2'>Foo</td></tr>
+       <tr><td>Bar: </td><td id='bar_out_2'>Bar</td></tr>
+       <tr><td>Baz: </td><td id='baz_out_2'>Baz</td></tr>
+   </table>
+</body>
+
+
+</html>
