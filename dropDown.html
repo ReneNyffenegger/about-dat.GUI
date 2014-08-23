@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: dropdown</title>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    function main() {
+
+        var values = {
+            fruit: 'Apple',
+            city:  'New York'
+        };
+
+        var gui=new dat.GUI();
+
+        var fruit_out = document.getElementById('fruit_out');
+        var city_out  = document.getElementById('city_out' );
+
+        gui.add(values, 'fruit', ['Apple', 'Banana', 'Cherry', 'Pear'            ]).onChange(function() { fruit_out.innerHTML = values.fruit; });
+        gui.add(values, 'city' , ['Geneva','New York', 'Rio de Janeiro', 'Berlin']).onChange(function() { city_out.innerHTML  = values.city ; });
+      
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+   <table>
+     <tr><td>Fruit: </td><td id='fruit_out'>Apple   </td></tr>
+     <tr><td>City:  </td><td id='city_out' >New York</td></tr>
+   </table>
+</body>
+
+
+</html>
