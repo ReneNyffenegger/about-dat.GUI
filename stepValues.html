@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: step values</title>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    function main() {
+
+        var values = {
+            value: 4,
+        };
+
+        var gui=new dat.GUI();
+
+        var value_out = document.getElementById('value_out');
+
+        gui.add(values, 'value').min(2).step(0.25).onChange(function() { value_out.innerHTML = values.value; });
+      
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+   <table>
+     <tr><td>Value: </td><td id='value_out'>4</td></tr>
+   </table>
+</body>
+
+
+</html>
