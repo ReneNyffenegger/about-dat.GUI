@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: updateDisplay</title>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    var values = {};
+    var i = 0;
+
+    function frame() {
+
+        requestAnimationFrame(frame);
+   
+        i += 0.11;
+   
+        values.foo =   5 +  5*Math.sin(i * 0.2     );
+        values.bar =  25 + 25*Math.sin(i * 0.31 + 1);
+        values.baz =  10 + 20*Math.sin(i * 0.17 + 2);
+
+    }
+
+    function main() {
+
+        var gui=new dat.GUI();
+
+        frame();
+
+        gui.add(values, 'foo', -10, 10).listen();
+        gui.add(values, 'bar',   0, 50).listen();
+        gui.add(values, 'baz', -10, 30).listen();
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+</body>
+</html>
