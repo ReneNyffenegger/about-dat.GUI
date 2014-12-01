@@ -1,4 +1,1 @@
-about-dat.GUI
-=============
-
-About dat.GUI
+# about dat.GUI
