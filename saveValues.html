@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <title>dat.GUI: sliding Values</title>
+
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js"></script>
+
+  <script type="text/javascript">
+
+    function main() {
+
+        var values = {
+            foo:   5,
+            bar:  20,
+            baz:  30
+        };
+
+        var gui=new dat.GUI();
+
+        gui.remember(values); // Save the values!
+
+        var foo_out = document.getElementById('foo_out');
+        var bar_out = document.getElementById('bar_out');
+        var baz_out = document.getElementById('baz_out');
+
+        gui.add(values, 'foo', -10, 10).onChange(function() { foo_out.innerHTML = values.foo; });
+        gui.add(values, 'bar',   0, 50).onChange(function() { bar_out.innerHTML = values.bar; });
+        gui.add(values, 'baz',  25, 35).onChange(function() { baz_out.innerHTML = values.baz; });
+      
+    }
+  
+  </script>
+
+</head>
+
+<body onload='main();'>
+   <table>
+     <tr><td>Foo: </td><td id='foo_out'>10</td></tr>
+     <tr><td>Bar: </td><td id='bar_out'>20</td></tr>
+     <tr><td>Baz: </td><td id='baz_out'>30</td></tr>
+   </table>
+</body>
+
+
+</html>
